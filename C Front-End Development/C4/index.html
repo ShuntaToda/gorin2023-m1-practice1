@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button onclick="changeColor('#ff0000')">Red</button>
+  <button onclick="changeColor('#00ff00')">Green</button>
+  <button onclick="changeColor('#0000ff')">Blue</button>
+  <button onclick="changeColor('#ffff00')">Yellow</button>
+  <button onclick="changeColor('#000000')">Black</button>
+
+  <canvas id="drawingCanvas" width="300" height="300"></canvas>
+
+  <button onclick="saveImage('jpg')">Save as JPG</button>
+  <button onclick="saveImage('png')">Save as PNG</button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

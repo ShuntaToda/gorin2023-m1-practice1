@@ -1,0 +1,90 @@
+.shingo{
+  width: 150px;
+  height: 50px;
+  border-radius: 25px;
+  border: solid rgb(199, 199, 199) 1px;
+  background-color: rgb(204, 204, 204);
+  position: relative;
+}
+
+.blue,
+.yellow,
+.red{
+  position: absolute;
+  top: 50%;
+  translate: -50% -50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.blue{
+  left: 20%;
+  background-color: blue;
+  animation: blue 8s infinite;
+}
+
+.yellow{
+  left: 50%;
+  background-color: yellow;
+  animation: yellow 8s infinite;
+}
+
+.red{
+  left: 80%;
+  background-color: red;
+  animation: red 8s infinite;
+}
+
+@keyframes blue {
+  0%{
+    opacity: 1;
+  }
+  49%{
+    opacity: 1;
+  }
+  50%{
+    opacity: .2;
+  }
+  100%{
+    opacity: .2;
+  }
+}
+
+@keyframes yellow {
+  0%{
+    opacity: 0.2;
+  }
+  49%{
+    opacity: 0.2;
+  }
+  50%{
+    opacity: 1;
+  }
+  62%{
+    opacity: 1;
+  }
+  62.5%{
+    opacity: 0.2;
+  }
+  100%{
+    opacity: 0.2;
+  }
+}
+@keyframes red {
+  0%{
+    opacity: 0.2;
+  }
+  62%{
+    opacity: 0.2;
+  }
+  62.5%{
+    opacity: 1;
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.2;
+  }
+}
