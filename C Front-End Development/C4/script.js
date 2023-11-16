@@ -1,45 +1,35 @@
+const canvas = document.querySelector("canvas")
+const ctx = canvas.getContext("2d")
 
-let canvas = document.getElementById('drawingCanvas');
-let ctx = canvas.getContext('2d');
+let color = "#000"
+let flag = false
 
-let painting = false;
-
-canvas.addEventListener('mousedown', startPosition);
-canvas.addEventListener('mouseup', finishedPosition);
-canvas.addEventListener('mousemove', draw);
-
-let color = '#000000';
-
-function startPosition(e) {
-  painting = true;
-  draw(e);
+const changeColor = (newColor) => {
+  color = newColor
 }
 
-function finishedPosition() {
-  painting = false;
-  ctx.beginPath();
-}
+canvas.addEventListener("mousedown", (e) => {
+  flag = true
+})
+document.addEventListener("mouseup", (e) => {
+  flag = false
+  ctx.beginPath()
+})
 
-function draw(e) {
-  if (!painting) return;
-  ctx.lineWidth = 5;
-  ctx.lineCap = 'round';
-  ctx.strokeStyle = color;
+canvas.addEventListener("mousemove", (e) => {
+  if(!flag) return
 
-  ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-}
+  ctx.fillStyle = color
+  ctx.strokeStyle = color
+  ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.clientTop)
+  ctx.stroke()
+  ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.clientTop)
+})
 
-function changeColor(newColor) {
-  color = newColor;
-}
-
-function saveImage(format) {
-  let image = canvas.toDataURL(`image/${format}`).replace(`image/${format}`, "image/octet-stream");
-  let link = document.createElement('a');
-  link.download = `my_drawing.${format}`;
-  link.href = image;
-  link.click();
+const saveImage = (format) => {
+  const image = canvas.toDataURL("image/" + format)
+  const link = document.createElement("a")
+  link.download = "download." + format
+  link.href = image
+  link.click()
 }
